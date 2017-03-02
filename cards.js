@@ -1,6 +1,12 @@
 
-//methods  innerHTML 
+/// Variables /// 
+var createButton = document.getElementById("showMeButton");
 
+var textPlaceHolder = document.getElementById("userText");
+
+var outputCardFromDiv = document.getElementById("ouputCardDiv");
+
+var userArrrayString = [];
 
 // Potentially another way of doing it with another method read Duckett DOM Chapter.
 // To help find maybe easier or more effective ways of handling the issue. 
@@ -9,10 +15,16 @@
 //////////////////// JavaScript ////////////////
 
 
-/// Variables /// 
+function writeToDom() {
+	outputCardFromDiv.innerHTML = "";
 
-var userInputFromDOM = 
-var outputCardToDOM = 
+	for (i=0; i < userArrrayString.length; i++) {
+		var userInputString = ""
+		userInputString += `<div class="cardBox", id="cardBox-${i}">`
+	}
+}
+
+
 
 
 
