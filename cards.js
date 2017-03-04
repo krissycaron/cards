@@ -6,7 +6,7 @@ var textPlaceHolder = document.getElementById("userText");
 
 var outputCardFromDiv = document.getElementById("ouputCardDiv");
 
-var userArrrayString = [];
+var deleteButton = document.getElementById("clearBtn");
 
 // Potentially another way of doing it with another method read Duckett DOM Chapter.
 // To help find maybe easier or more effective ways of handling the issue. 
@@ -16,13 +16,21 @@ var userArrrayString = [];
 
 
 function writeToDom() {
-	outputCardFromDiv.innerHTML = "";
-
-	for (i=0; i < userArrrayString.length; i++) {
-		var userInputString = ""
-		userInputString += `<div class="cardBox", id="cardBox-${i}">`
-	}
+	var cardToBuild = "";
+		cardToBuild += `<div class="cardBox">`;
+		cardToBuild += `<h3> ${textPlaceHolder.value} </h3>`;
+		cardToBuild += `<button id="clearBtn">Clear</button>`;
+		cardToBuild += `</div>`;
+		outputCardFromDiv.innerHTML += cardToBuild;
 }
+
+function deleteCard () {
+	outputCardFromDiv.innerHTML = "";
+}
+
+createButton.addEventListener("click", writeToDom);
+
+deleteButton.addEventListener("click", deleteCard);
 
 
 
