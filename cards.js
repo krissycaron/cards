@@ -8,9 +8,6 @@ var outputCardFromDiv = document.getElementById("ouputCardDiv");
 
 var deleteButton = document.getElementById("clearBtn");
 
-// Potentially another way of doing it with another method read Duckett DOM Chapter.
-// To help find maybe easier or more effective ways of handling the issue. 
-
 
 //////////////////// JavaScript ////////////////
 
@@ -19,7 +16,7 @@ function writeToDom() {
 	var cardToBuild = "";
 		cardToBuild += `<div class="cardBox">`;
 		cardToBuild += `<h3> ${textPlaceHolder.value} </h3>`;
-		cardToBuild += `<button id="clearBtn">Clear</button>`;
+		cardToBuild += `<button class="deleteBtn">Delete</button>`;
 		cardToBuild += `</div>`;
 		outputCardFromDiv.innerHTML += cardToBuild;
 }
@@ -28,11 +25,22 @@ function deleteCard () {
 	outputCardFromDiv.innerHTML = "";
 }
 
+function deleteSingleCard(event){
+		if (event.target.className === "deleteBtn"){
+		// cardToBuild.removeChild();
+		// console.log(event);
+		event.target.parentElement.remove();
+		};
+}
+// function deleteOneCard () {
+// 	cardToBuild.removeChild(parent.firstChild);
+// } /// shit dont work.
+
 createButton.addEventListener("click", writeToDom);
 
 deleteButton.addEventListener("click", deleteCard);
 
-
+document.body.addEventListener("click", deleteSingleCard)
 
 
 
